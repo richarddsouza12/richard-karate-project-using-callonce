@@ -1,12 +1,12 @@
 Feature: Retrieve Auth Token
 
   Background:
-    * url 'https://restful-booker.herokuapp.com'
+    * url baseUrl
 
   Scenario: Get auth token
     Given path '/auth'
     When header Accept = 'application/json'
-    And request { "username" : "admin" , "password" : "password123" }
+    And request { "username" : '#(login_credentials.username)' , "password" : '#(login_credentials.password)' }
     And method post
     Then status 200
     * def tokenId = response.token

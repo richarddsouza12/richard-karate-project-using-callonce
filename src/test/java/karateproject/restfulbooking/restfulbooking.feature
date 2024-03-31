@@ -1,7 +1,7 @@
 Feature: Restful Booking API Tests
 
   Background:
-    * url 'https://restful-booker.herokuapp.com'
+    * url baseUrl
     * def response = callonce read('./components/getauthtoken.feature')
     * def tokenId = response.tokenId
     # info : auth token needs to be used when we put-update and patch-update , same token needs to be used)
